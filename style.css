@@ -73,9 +73,11 @@ select {
     scroll-behavior: auto !important;
   }
 }
-:root {
-    --primaryText: 16px;
-    --secondaryText: 12px;   
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+:root{
+    --primaryText: 30px;
+    --secondaryText: 12px; 
+    --primaryFont: 'Silkscreen', cursive;
 }
 main{
     display: grid;
@@ -88,6 +90,7 @@ main{
 
 h2 {
     font-size: var(--primaryText);
+    font-family: var(--primaryFont);
 }
 
 h3 {
@@ -95,7 +98,7 @@ h3 {
 }
 
 h4 {
-    
+
 }
 
 .entry{
