@@ -73,3 +73,40 @@ select {
     scroll-behavior: auto !important;
   }
 }
+:root {
+    --primaryText: 16px;
+    --secondaryText: 12px;   
+}
+main{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+
+}
+
+h2 {
+    font-size: var(--primaryText);
+}
+
+h3 {
+    font-size: var(--secondaryText);
+}
+
+h4 {
+    
+}
+
+.entry{
+    border: 1px solid black;
+}
+
+.top{
+    display: flex;
+}
+
+.pokeImg{
+    width: 100px;
+    height: auto;
+}
