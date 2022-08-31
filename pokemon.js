@@ -5,6 +5,7 @@ class Pokemon{
 
     setData(data){
         this.data = data;
+        this.setName();
     }
 
     setName(){

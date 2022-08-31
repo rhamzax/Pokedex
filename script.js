@@ -1,10 +1,6 @@
 const mainGrid = document.querySelector('main');
 const modal = document.querySelector(".pokeModal");
-
-// Get the button that opens the modal
 const btn = document.querySelector(".btn");
-
-// Get the <span> element that closes the modal
 const span = document.querySelector(".close");
 
 // When the user clicks on the button, open the modal
@@ -50,12 +46,25 @@ function showInfo(){
     console.log("1")
     
 }
-function createPokedex(){
-    for(let i = 1; i < 31; i++){
-        ApiRequest(i).then(pokeName => (createEntry(i, pokeName)))
+let pokedex = []
+async function createPokedex(){
+    for(let i = 1; i < 899; i++){
+      let pokemon = new Pokemon(i)
+      // ApiRequest(i).then(data => {
+      //   // console.log(data)
+      //   pokemon.setData(data);
+      //   console.log(pokemon.data)
+      // }).catch(err => {
+      //   console.log(err);
+      // });
+      pokemon.setData(await ApiRequest(i))
+      pokedex.push(pokemon)
+      mainGrid.appendChild(pokemon.createEntry());
+      
     }
     
 }
+
 
 /* $(".animated-progress span").each(function () {
     $(this).animate(
@@ -93,9 +102,7 @@ function createPokedex(){
 async function ApiRequest(pokeIndex) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeIndex}`, {});
     const json = await response.json();
-    let pokeName = json.species.name
-    // SpeciesRequest(json.species.url)
-    return pokeName
+    return json
 }
 
 // async function SpeciesRequest(url){
@@ -106,3 +113,4 @@ async function ApiRequest(pokeIndex) {
 
 
 createPokedex();
+console.log(pokedex)
