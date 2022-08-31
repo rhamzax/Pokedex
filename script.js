@@ -79,26 +79,6 @@ async function createPokedex(){
 */
 
 
-// function ApiRequest(pokeIndex){
-//     let urlGen = `https://pokeapi.co/api/v2/pokemon/${pokeIndex}`
-
-//     fetch(urlGen)
-//       .then(response => {
-//         // indicates whether the response is successful (status code 200-299) or not
-//         if (!response.ok) {
-//           throw new Error(`Request failed with status ${response.status}`)
-//         }
-//         return response.json()
-//       })
-//       .then(data => {
-//         let pokeName = ""
-//         pokeName = data.species.name;
-//         // pokeName = pokeName.replace("-", " ");
-//         createEntry(pokeIndex, pokeName)
-//       })
-//       .catch(error => console.log(error))
-// }
-
 async function ApiRequest(pokeIndex) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeIndex}`, {});
     const json = await response.json();
