@@ -51,7 +51,7 @@ function showInfo(){
     
 }
 function createPokedex(){
-    for(let i = 1; i < 30; i++){
+    for(let i = 1; i < 31; i++){
         ApiRequest(i).then(pokeName => (createEntry(i, pokeName)))
     }
     
@@ -94,7 +94,6 @@ async function ApiRequest(pokeIndex) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeIndex}`, {});
     const json = await response.json();
     let pokeName = json.species.name
-    console.log(json)
     // SpeciesRequest(json.species.url)
     return pokeName
 }
