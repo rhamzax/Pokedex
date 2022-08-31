@@ -76,7 +76,7 @@ select {
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 :root{
-    --primaryText: 30px;
+    --primaryText: 1rem;
     --secondaryText: 12px; 
     --primaryFont: 'Silkscreen', cursive;
     --secondaryFont: 'Montserrat', sans-serif; 
@@ -90,38 +90,14 @@ main{
 
 }
 
-h2 {
+h2.entry {
     font-size: var(--primaryText);
     font-family: var(--primaryFont);
 }
 
-h3 {
+h3.entry {
     font-size: var(--secondaryText);
     font-family: var(--secondaryFont);
-}
-
-.pokePopup{
-  /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.pokeContent{
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-h4 {
-
 }
 
 .entry{
@@ -135,4 +111,93 @@ h4 {
 .pokeImg{
     width: 100px;
     height: auto;
+}
+
+/* Modal Styling */
+.pokeModal{
+  /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  overflow-y: auto;
+}
+
+.pokeModalContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  font-size: var(--primaryText);
+}
+
+.pokeCharacteristic{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.pokeAbilities{
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.CharacteristicTitle{
+  font-weight: bold;
+  text-align: right;
+}
+
+.StatisticTitle{
+  font-weight: bold;
+}
+
+.pokeTypes{
+  display: flex;
+  gap: 5px;
+  flex-wrap: nowrap;
+}
+#left{
+  margin-right: auto;
+}
+
+.stats{
+  width: inherit;
+}
+
+.animated-progress {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  margin: 20px 10px;
+  background-color: rgb(202, 202, 202);
+  overflow: hidden;
+  position: relative;
+}
+
+.animated-progress span {
+  height: 100%;
+  display: block;
+  width: 0;
+  color: rgb(255, 255, 255);
+  line-height: (248, 0, 0);
+  position: absolute;
+  text-align: end;
+  padding-right: 5px;
+}
+
+.progress-blue span {
+  background-color: rgb(0, 153, 255);
 }

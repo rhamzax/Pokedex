@@ -1,5 +1,5 @@
 const mainGrid = document.querySelector('main');
-const modal = document.querySelector(".pokePopup");
+const modal = document.querySelector(".pokeModal");
 
 // Get the button that opens the modal
 const btn = document.querySelector(".btn");
@@ -57,6 +57,19 @@ function createPokedex(){
     
 }
 
+/* $(".animated-progress span").each(function () {
+    $(this).animate(
+      {
+        width: $(this).attr("data-progress") + "%",
+      },
+      1000
+    );
+    $(this).text($(this).attr("data-progress") + "%");
+  });
+
+*/
+
+
 // function ApiRequest(pokeIndex){
 //     let urlGen = `https://pokeapi.co/api/v2/pokemon/${pokeIndex}`
 
@@ -81,7 +94,16 @@ async function ApiRequest(pokeIndex) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeIndex}`, {});
     const json = await response.json();
     let pokeName = json.species.name
+    console.log(json)
+    // SpeciesRequest(json.species.url)
     return pokeName
 }
+
+// async function SpeciesRequest(url){
+//     const response = await fetch(url, {});
+//     const json = await response.json();
+//     console.log(json)
+// }
+
 
 createPokedex();
