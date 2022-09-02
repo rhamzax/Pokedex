@@ -65,4 +65,3 @@ async function ApiRequest(pokeIndex) {
 
 
 createPokedex();
-console.log(pokedex)

@@ -51,7 +51,6 @@ class Pokemon{
         
         `
         gridEntry.addEventListener('click', showInfo)
-        console.log(this.hp)
         return gridEntry;
     }
     createModal(){
@@ -108,8 +107,7 @@ class Pokemon{
                     <span data-progress="45" style="width: ${this.speed}%;">${this.speed}</span>
                 </div>    
                 <p class="stat-title">Total</p>
-                <p>${this.total}</p>   
-                 
+                <p>${this.total}</p>         
             </div>
         `
         return modalContent
