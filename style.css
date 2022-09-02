@@ -115,7 +115,7 @@ h3.entry {
 
 /* Modal Styling */
 .pokeModal{
-  /* Hidden by default */
+  display: none;/* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
