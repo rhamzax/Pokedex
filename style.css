@@ -73,6 +73,10 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 :root{
@@ -89,7 +93,9 @@ main{
     grid-template-rows: repeat(5, 1fr);
 
 }
-
+p::first-letter{
+  text-transform: capitalize;
+}
 h2.entry {
     font-size: var(--primaryText);
     font-family: var(--primaryFont);
