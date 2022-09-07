@@ -13,7 +13,7 @@ window.onclick = function(event) {
 
 let pokedex = []
 async function createPokedex(){
-    for(let i = 1; i < 20; i++){
+    for(let i = 1; i < 500; i++){
       let pokemon = new Pokemon(i)
       pokemon.setData(await ApiRequest(i))
       pokedex.push(pokemon)
