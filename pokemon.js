@@ -28,6 +28,17 @@ class Pokemon{
         this.spDefense = this.data.stats[4].base_stat
         this.speed = this.data.stats[5].base_stat
         this.total = this.hp + this.attack + this.defense + this.spAttack + this.spDefense + this.speed
+        this.max_stat = Math.max(this.hp, this.attack, this.defense, this.spAttack, this.spDefense, this.speed)
+
+    }
+
+    createWidthsForStatsBar(){
+        this.hpWidth = Math.round(this.hp/this.max_stat*100)
+        this.attackWidth = Math.round(this.attack/this.max_stat*100)
+        this.defenseWidth = Math.round(this.defense/this.max_stat*100)
+        this.spAttackWidth = Math.round(this.spAttack/this.max_stat*100)
+        this.spDefenseWidth = Math.round(this.spDefense/this.max_stat*100)
+        this.speedWidth = Math.round(this.speed/this.max_stat*100)
     }
 
     createEntry(){
@@ -54,6 +65,7 @@ class Pokemon{
         return gridEntry;
     }
     createModal(){
+        this.createWidthsForStatsBar()
         const modalContent = document.createElement('div');
         modalContent.className = 'pokeModalContent'
         modalContent.innerHTML =
@@ -84,27 +96,27 @@ class Pokemon{
             <div class="stats">
                 <p class="stat-title">Hp</p>
                 <div class="animated-progress progress-blue">
-                    <span data-progress="45" style="width: ${this.hp}%;">${this.hp}</span>
+                    <span data-progress="45" style="width: ${this.hpWidth}%;">${this.hp}</span>
                 </div>    
                 <p class="stat-title">Attack</p>
                 <div class="animated-progress progress-blue">
-                    <span data-progress="45" style="width: ${this.attack}%;">${this.attack}</span>
+                    <span data-progress="45" style="width: ${this.attackWidth}%;">${this.attack}</span>
                 </div>    
                 <p class="stat-title">Defense</p>
                 <div class="animated-progress progress-blue">
-                    <span data-progress="45" style="width: ${this.defense}%;">${this.defense}</span>
+                    <span data-progress="45" style="width: ${this.defenseWidth}%;">${this.defense}</span>
                 </div>    
                 <p class="stat-title">Sp. Attack</p>
                 <div class="animated-progress progress-blue">
-                    <span data-progress="45" style="width: ${this.spAttack}%;">${this.spAttack}</span>
+                    <span data-progress="45" style="width: ${this.spAttackWidth}%;">${this.spAttack}</span>
                 </div>    
                 <p class="stat-title">Sp. Defense</p>
                 <div class="animated-progress progress-blue">
-                    <span data-progress="45" style="width: ${this.spDefense}%;">${this.spDefense}</span>
+                    <span data-progress="45" style="width: ${this.spDefenseWidth}%;">${this.spDefense}</span>
                 </div>    
                 <p class="stat-title">Speed</p>
                 <div class="animated-progress progress-blue">
-                    <span data-progress="45" style="width: ${this.speed}%;">${this.speed}</span>
+                    <span data-progress="45" style="width: ${this.speedWidth}%;">${this.speed}</span>
                 </div>    
                 <p class="stat-title">Total</p>
                 <p>${this.total}</p>         
