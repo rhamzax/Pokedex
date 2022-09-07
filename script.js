@@ -13,7 +13,7 @@ window.onclick = function(event) {
 
 let pokedex = []
 async function createPokedex(){
-    for(let i = 1; i < 200; i++){
+    for(let i = 1; i < 20; i++){
       let pokemon = new Pokemon(i)
       pokemon.setData(await ApiRequest(i))
       pokedex.push(pokemon)
@@ -25,7 +25,6 @@ async function createPokedex(){
 function showInfo(){
   let pokemon = pokedex[this.id-1]  
   modal.innerHTML = ''
-  console.log(pokemon.createModal())
   modal.appendChild(pokemon.createModal())
   modal.style.display = "block";
   enableCloseBtn();

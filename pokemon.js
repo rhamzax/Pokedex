@@ -8,6 +8,8 @@ class Pokemon{
         this.setName();
         this.setStats();
         this.setCharisteristic();
+        this.setTypes();
+        this.setAbilities();
     }
 
     setName(){
@@ -29,9 +31,34 @@ class Pokemon{
         this.speed = this.data.stats[5].base_stat
         this.total = this.hp + this.attack + this.defense + this.spAttack + this.spDefense + this.speed
         this.max_stat = Math.max(this.hp, this.attack, this.defense, this.spAttack, this.spDefense, this.speed)
-
     }
 
+    setTypes(){
+        let types = []
+        for(const [key, value] of Object.entries(this.data.types)){
+            types.push(value.type.name) 
+        }
+        this.types = types
+    }
+
+    createTypesHtml(){
+        let typeHtml = ''
+        this.types.forEach(type => typeHtml += `<p>${type}</p>\n`)
+        return typeHtml
+    }
+    setAbilities(){
+        let abilities = []
+        for(const [key, value] of Object.entries(this.data.abilities)){
+            abilities.push(value.ability.name) 
+        }
+        this.abilities = abilities
+    }
+
+    createModalStatsContent(content){
+        let contentHtml = ''
+        content.forEach(item => contentHtml += `<p>${item}</p>\n`)
+        return contentHtml
+    }
     createWidthsForStatsBar(){
         this.hpWidth = Math.round(this.hp/this.max_stat*100)
         this.attackWidth = Math.round(this.attack/this.max_stat*100)
@@ -42,6 +69,7 @@ class Pokemon{
     }
 
     createEntry(){
+        this.createTypesHtml()
         const gridEntry = document.createElement('div');
         gridEntry.className = 'entry';
         gridEntry.id = `${this.index}`
@@ -78,8 +106,7 @@ class Pokemon{
             <div class="pokeCharacteristic">
                 <p class="CharacteristicTitle">Type</p>
                 <div class="pokeTypes">
-                    <p>Fire</p>
-                    <p>Flying</p>
+                    ${this.createModalStatsContent(this.types)}
                 </div>
                 <p class="CharacteristicTitle">Height</p>
                 <p>${this.height}m ( 1'12" )</p>
@@ -87,9 +114,7 @@ class Pokemon{
                 <p>${this.weight}kg ( 18.7lbs. )</p>
                 <p class="CharacteristicTitle">Abilities</p>
                 <div class="pokeAbilities">
-                    <p>Blaze</p>
-                    <p>Solar-Power</p>    
-                    <p>Solar-Power</p> 
+                    ${this.createModalStatsContent(this.abilities)}
                 </div>
             </div>
             <p class="StatisticTitle">Stats</p>
