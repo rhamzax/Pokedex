@@ -84,6 +84,34 @@ select {
     --secondaryText: 12px; 
     --primaryFont: 'Silkscreen', cursive;
     --secondaryFont: 'Montserrat', sans-serif; 
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --lightgreen: #92bc2c;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --brown: #da7c4d;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
 }
 main{
     display: grid;
@@ -148,6 +176,10 @@ h3.entry {
   font-size: var(--primaryText);
 }
 
+.close{
+  font-size: 1.5em;
+}
+
 .pokeCharacteristic{
   margin-top: 1em;
   display: grid;
@@ -177,6 +209,7 @@ h3.entry {
   gap: 5px;
   flex-wrap: nowrap;
 }
+
 #left{
   margin-right: auto;
 }
@@ -221,5 +254,75 @@ h3.entry {
 
 .stat-title{
   justify-self: end;
-  
+}
+
+.water{
+  background-color: var(--blue);
+}
+
+.grass{
+  background-color: var(--green);
+}
+
+.fire{
+  background-color: var(--orange);
+}
+
+.bug{
+  background-color: var(--lightgreen);
+}
+
+.dark{
+  background-color: var(--dark);
+}
+
+.ghost{
+  background-color: var(--indigo);
+}
+
+.poison{
+  background-color: var(--purple);
+}
+.rock{
+  background-color: var(--gray-dark);
+}
+
+.dragon{
+  background-color: var(--cyan);
+}
+
+.electric{
+  background-color: var(--yellow);
+}
+
+.fighting{
+  background-color: var(--red);
+}
+
+.psychic{
+  background-color: var(--pink);
+}
+
+.normal{
+  background-color: var(--gray);
+}
+
+.ground{
+  background-color: var(--brown);
+}
+
+.fairy{
+  background-color: var(--pink);
+}
+
+.ice{
+  background-color: var(--info);
+}
+
+.steel{
+  background-color: var(--gray-dark);
+}
+
+.flying{
+  background-color: var(--gray);
 }
