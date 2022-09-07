@@ -13,7 +13,7 @@ class Pokemon{
     }
 
     setName(){
-        this.pokeName = this.data.species.name
+        this.pokeName = this.capatilizeFirstLetter(this.data.species.name) 
     }
 
     setCharisteristic(){
@@ -30,7 +30,7 @@ class Pokemon{
         this.spDefense = this.data.stats[4].base_stat
         this.speed = this.data.stats[5].base_stat
         this.total = this.hp + this.attack + this.defense + this.spAttack + this.spDefense + this.speed
-        this.max_stat = Math.max(this.hp, this.attack, this.defense, this.spAttack, this.spDefense, this.speed)
+        
     }
 
     setTypes(){
@@ -41,11 +41,6 @@ class Pokemon{
         this.types = types
     }
 
-    createTypesHtml(){
-        let typeHtml = ''
-        this.types.forEach(type => typeHtml += `<p>${type}</p>\n`)
-        return typeHtml
-    }
     setAbilities(){
         let abilities = []
         for(const [key, value] of Object.entries(this.data.abilities)){
@@ -54,12 +49,19 @@ class Pokemon{
         this.abilities = abilities
     }
 
+    capatilizeFirstLetter(str){
+        const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+        return capitalized
+    }
+
     createModalStatsContent(content){
         let contentHtml = ''
-        content.forEach(item => contentHtml += `<p>${item}</p>\n`)
+        content.forEach(item => contentHtml += `<p class="${item}">${item}</p>\n`)
         return contentHtml
     }
+
     createWidthsForStatsBar(){
+        this.max_stat = Math.max(this.hp, this.attack, this.defense, this.spAttack, this.spDefense, this.speed)
         this.hpWidth = Math.round(this.hp/this.max_stat*100)
         this.attackWidth = Math.round(this.attack/this.max_stat*100)
         this.defenseWidth = Math.round(this.defense/this.max_stat*100)
@@ -69,7 +71,6 @@ class Pokemon{
     }
 
     createEntry(){
-        this.createTypesHtml()
         const gridEntry = document.createElement('div');
         gridEntry.className = 'entry';
         gridEntry.id = `${this.index}`
@@ -109,9 +110,9 @@ class Pokemon{
                     ${this.createModalStatsContent(this.types)}
                 </div>
                 <p class="CharacteristicTitle">Height</p>
-                <p>${this.height}m ( 1'12" )</p>
+                <p>${this.height}m</p>
                 <p class="CharacteristicTitle">Weight</p>
-                <p>${this.weight}kg ( 18.7lbs. )</p>
+                <p>${this.weight}kg</p>
                 <p class="CharacteristicTitle">Abilities</p>
                 <div class="pokeAbilities">
                     ${this.createModalStatsContent(this.abilities)}
